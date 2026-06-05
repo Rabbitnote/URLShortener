@@ -34,7 +34,7 @@ func main() {
 	routeHandler := handler.New(service)
 	r := gin.Default()
 	r.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"http://localhost:3000"},
+		AllowOrigins: []string{"http://localhost:3000", "https://url-shortener-eight-weld.vercel.app"},
 		AllowMethods: []string{"GET", "POST"},
 		AllowHeaders: []string{"Content-Type"},
 	}))
