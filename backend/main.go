@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 
+	"crypto/tls"
+
 	_ "github.com/lib/pq"
 
 	"github.com/gin-contrib/cors"
@@ -23,8 +25,9 @@ func main() {
 		log.Fatal("Failed to connect to database:", err)
 	}
 	rdb := redis.NewClient(&redis.Options{
-		Addr:     cfg.GetRedisAddress(),
-		Password: cfg.RedisPassword,
+		Addr:      cfg.GetRedisAddress(),
+		Password:  cfg.RedisPassword,
+		TLSConfig: &tls.Config{},
 	})
 	repo := repository.New(db, rdb)
 	service := services.New(repo)
