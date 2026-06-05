@@ -35,7 +35,7 @@ func Load() *Config {
 }
 
 func (c *Config) GetDBConnectionString() string {
-	return fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable",
+	return fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=require",
 		c.DBUser, c.DBPassword, c.DBHost, c.DBPort, c.DBName)
 }
 func (c *Config) GetRedisAddress() string {
