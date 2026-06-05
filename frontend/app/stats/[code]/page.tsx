@@ -18,7 +18,7 @@ export default function StatsPage({ params }: { params: Promise<{ code: string }
   const [data, setData] = useState<URLStats | null>(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/stats/${code}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/stats/${code}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);

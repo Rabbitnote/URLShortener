@@ -19,7 +19,7 @@ export default function Home() {
             layout="vertical"
             onFinish={async (values) => {
               setLoading(true);
-              const res = await fetch("http://localhost:8080/api/shorten", {
+              const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/shorten`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -51,16 +51,16 @@ export default function Home() {
               <Text type="secondary">Your short URL:</Text>
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 8 }}>
                 <a
-                  href={`http://localhost:8080/${shortUrl}`}
+                  href={`${process.env.NEXT_PUBLIC_API_URL}/${shortUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  http://localhost:8080/{shortUrl}
+                  {process.env.NEXT_PUBLIC_API_URL}/{shortUrl}
                 </a>
                 <Button
                   size="small"
                   onClick={() => {
-                    navigator.clipboard.writeText(`http://localhost:8080/${shortUrl}`);
+                    navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_API_URL}/${shortUrl}`);
                   }}
                 >
                   Copy
