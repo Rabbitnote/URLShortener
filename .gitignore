@@ -1,0 +1,13 @@
+# Backend
+backend/.env
+backend/tmp/
+
+# Frontend
+frontend/.env
+frontend/.env.local
+frontend/node_modules/
+frontend/.next/
+
+# Go
+*.exe
+*.out
